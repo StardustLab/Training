@@ -1,0 +1,330 @@
+/* Common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+:root {
+    --background-light: #ffffff;
+    --background-dark: #121212;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+    --input-background-light: #ffffff;
+    --input-background-dark: #2c2c2c;
+    --input-text-light: #000000;
+    --input-text-dark: #ffffff;
+    --label-text-light: #888888;
+    --label-text-dark: #aaaaaa;
+    --button-gradient-light: linear-gradient(to right, #00f2fe, #ff00ff);
+    --button-gradient-dark: linear-gradient(to right, #ff00ff, #00f2fe);
+    --sso-button-background-light: #000000;
+    --sso-button-background-dark: #444444;
+    --image-container-gradient-light: linear-gradient(to right, #4facfe, #00f2fe);
+    --image-container-gradient-dark: linear-gradient(to right, #1e3c72, #2a5298);
+}
+
+body.light-mode {
+    background-color: var(--background-light);
+    color: var(--text-light);
+}
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Flexbox centering */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    width: 50%;
+    height: 100%;
+}
+
+.login-box {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: var(--input-background-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .login-box {
+    background-color: var(--input-background-dark);
+}
+
+body.light-mode .login-container {
+    background-color: #f0f0f0;
+}
+
+body.dark-mode .login-container {
+    background-color: #1e1e1e;
+}
+
+.login-box h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: var(--text-light);
+    font-weight: 200;
+    transition: color 0.3s;
+}
+
+body.dark-mode .login-box h1 {
+    color: var(--text-dark);
+}
+
+.logo {
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: #4facfe;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    border-bottom: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.input-container i {
+    margin-right: 10px;
+    color: #888;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 16px;
+    background: none;
+    color: var(--input-text-light);
+    transition: color 0.3s, background-color 0.3s;
+}
+
+body.dark-mode .input-container input {
+    color: var(--input-text-dark);
+}
+
+.input-container label {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    color: var(--label-text-light);
+    font-size: 16px;
+    transition: 0.3s ease all;
+    pointer-events: none;
+}
+
+body.dark-mode .input-container label {
+    color: var(--label-text-dark);
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 30px;
+    font-size: 12px;
+    color: #4facfe;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background: var(--button-gradient-light);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background 0.3s;
+}
+
+body.dark-mode .login-btn {
+    background: var(--button-gradient-dark);
+}
+
+.login-btn:hover {
+    background: linear-gradient(to right, #ff00ff, #00f2fe);
+}
+
+.sso-container {
+    margin-top: 30px;
+}
+
+.sso-container p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.sso-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sso-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--sso-button-background-light);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+body.dark-mode .sso-btn {
+    background: var(--sso-button-background-dark);
+}
+
+.login-box p {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #555;
+    font-weight: 200;
+}
+
+.login-box p a {
+    color: #4facfe;
+    text-decoration: none;
+}
+
+.login-box p a:hover {
+    text-decoration: underline;
+}
+
+.image-container {
+    display: none;
+    background: var(--image-container-gradient-light);
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    transition: color 0.3s, background 0.3s;
+}
+
+body.dark-mode .image-container {
+    background: var(--image-container-gradient-dark);
+    color: var(--text-dark);
+}
+
+.image-container .image-content {
+    max-width: 300px;
+}
+
+.image-container .image-logo {
+    font-size: 80px;
+    margin-top: 20px;
+}
+
+.image-container h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-weight: 200;
+    white-space: nowrap;
+}
+
+.image-container p {
+    font-size: 24px;
+    font-weight: 200;
+}
+
+/* Media query for desktop view */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+    }
+    .login-container {
+        width: 50%;
+    }
+    .image-container {
+        display: flex;
+    }
+}
+
+/* Media query for mobile view */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .login-container {
+        width: 100%;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .login-box {
+        max-width: 100%;
+    }
+    .image-container {
+        display: none;
+    }
+}
+
+/* Style for theme toggle */
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.theme-toggle i {
+    font-size: 24px;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+
+body.dark-mode .theme-toggle i {
+    color: var(--text-dark);
+}
